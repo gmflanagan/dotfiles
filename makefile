@@ -3,6 +3,8 @@
 SHELL := /bin/bash
 PWD ?= $(shell pwd)
 
+install: install-bin install-git install-vim
+
 install-bin:
 	@mkdir -p ~/bin/
 	@ln -fs $(PWD)/bin/* ~/bin/
@@ -16,3 +18,7 @@ install-vim:
 	@ln -fs $(PWD)/vim ~/.vim
 	@vim +PlugInstall +qall
 
+install-bash:
+	@ln -fs $(PWD)/bash/bashrc ~/.bash_profile
+	@ln -fs ~/.bash_profile ~/.bashrc
+	@if [ $$(uname) == "Darwin" ]; then ln -fs $(PWD)/bash/osx_profile ~/.osx_profile; fi

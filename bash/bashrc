@@ -73,6 +73,8 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias ..='cd ..'
+
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -87,6 +89,8 @@ set -o vi
 if [ -e "$HOME/.git-completion.bash" ]; then
     source "$HOME/.git-completion.bash"
 fi;
+
+[[ "$(uname)" == "Darwin" ]] && [[ -e "~/.osx_profile" ]] && source ~/.osx_profile
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/gflanagan/.sdkman"
