@@ -87,7 +87,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'junegunn/vim-easy-align'
 Plug 'Bling/vim-airline'
 "Plug 'jiangmiao/auto-pairs'
-Plug 'ervandew/supertab'
+"Plug 'ervandew/supertab'
 Plug 'majutsushi/tagbar'
 
 " Snippets engine.
@@ -142,6 +142,12 @@ endif
 " airline status bar
 "let g:airline#extensions#tabline#enabled = 1
 
+" ultisnips
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<S-M-lt>"
+let g:UltiSnipsJumpBackwardTrigger="<S-M-gt>"
+
 " jedi-vim
 let g:jedi#use_tabs_not_buffers = 0
 let g:jedi#use_splits_not_buffers = "top"
@@ -176,9 +182,15 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keyboard mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap ; :
-
 let mapleader=","
+
+nnoremap ; :
+nnoremap H ^
+nnoremap L $
+inoremap ii <Esc>
+inoremap jj <Esc>
+inoremap hh <Esc>
+
 " move between split panes
 map <S-M-Down> <C-w>j<C-w>_
 map <S-M-Up> <C-w>k<C-w>_
@@ -214,7 +226,6 @@ nmap     <leader>f :CtrlSF <c-r>=expand("<cword>")<cr><cr><C-w>_
 nmap     <leader><leader> <Plug>CtrlSFPrompt
 vmap     <leader>f <Plug>CtrlSFVwordPath
 nnoremap <leader><space> :CtrlSFToggle<CR>
-inoremap <leader><space> <Esc>:CtrlSFToggle<CR>
 
 " ----------------------------------------------
 " Git
