@@ -16,6 +16,7 @@ set expandtab
 set smarttab
 set mouse=v
 "set cursorline
+"set number
 set showmatch 		    " verify brace/parenthes/bracket
 set matchpairs+=<:>     " Treat '<','>' as matching braces.
 set visualbell t_vb=    " disable horrible beep when a command doesn't work
@@ -113,10 +114,11 @@ Plug 'mjbrownie/vim-htmldjango_omnicomplete'
 " Plug 'rking/ag.vim' "apt-get install silversearcher-ag / brew install the_silver_searcher
 
 " Colors
-"Plug 'altercation/vim-colors-solarized'
-"Plug 'sickill/vim-monokai'
+Plug 'altercation/vim-colors-solarized'
+Plug 'reedes/vim-colors-pencil'
 Plug 'tomasr/molokai'
 Plug 'romainl/Apprentice'
+Plug 'baeuml/summerfruit256.vim'
 Plug 'vim-scripts/Wombat'
 "Plug 'wombat256.vim'
 "Plug 'w0ng/vim-hybrid'
@@ -129,8 +131,10 @@ call plug#end()
 " Colour scheme
 " ----------------------------------------------
 syntax enable
-set background=dark
-colorscheme molokai
+" set background=light
+colorscheme springblossom256
+
+let python_highlight_all = 1
 
 "let g:molokai_original = 1
 "let g:jellybeans_use_lowcolor_black = 0
@@ -141,6 +145,13 @@ if (exists('+colorcolumn'))
 endif
 " airline status bar
 "let g:airline#extensions#tabline#enabled = 1
+"let g:airline_theme = 'pencil'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 1
+
+" gitgutter
+let g:gitgutter_override_sign_column_highlight = 0
+let g:gitgutter_sign_column_always = 1
 
 " ultisnips
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -187,9 +198,8 @@ let mapleader=","
 nnoremap ; :
 nnoremap H ^
 nnoremap L $
-inoremap ii <Esc>
-inoremap jj <Esc>
-inoremap hh <Esc>
+inoremap jk <Esc>
+inoremap JK <Esc>
 
 " move between split panes
 map <S-M-Down> <C-w>j<C-w>_

@@ -3,7 +3,7 @@
 SHELL := /bin/bash
 PWD ?= $(shell pwd)
 
-install: install-bin install-git install-vim
+install: install-bin install-git install-vim install-bash
 
 install-bin:
 	@mkdir -p ~/bin/
@@ -15,7 +15,13 @@ install-git:
 
 install-vim:
 	@ln -fs $(PWD)/vimrc ~/.vimrc
-	@ln -fs $(PWD)/vim ~/.vim
+	@mkdir -p ~/.vim
+	@rm -rf ~/.vim/autoload
+	@rm -rf ~/.vim/colors
+	@rm -rf ~/.vim/syntax
+	@ln -fs $(PWD)/vim/autoload ~/.vim/autoload
+	@ln -fs $(PWD)/vim/colors ~/.vim/colors
+	@ln -fs $(PWD)/vim/syntax ~/.vim/syntax
 	@vim +PlugInstall +qall
 
 install-bash:
