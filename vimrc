@@ -88,7 +88,6 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'junegunn/vim-easy-align'
 Plug 'Bling/vim-airline'
 "Plug 'jiangmiao/auto-pairs'
-"Plug 'ervandew/supertab'
 Plug 'majutsushi/tagbar'
 
 " Snippets engine.
@@ -96,6 +95,7 @@ Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 
+Plug 'ervandew/supertab'
 Plug 'kien/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'dyng/ctrlsf.vim'
@@ -153,22 +153,16 @@ let g:airline#extensions#tabline#show_buffers = 1
 let g:gitgutter_override_sign_column_highlight = 0
 let g:gitgutter_sign_column_always = 1
 
-" ultisnips
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<S-M-lt>"
-let g:UltiSnipsJumpBackwardTrigger="<S-M-gt>"
-
 " jedi-vim
 let g:jedi#use_tabs_not_buffers = 0
 let g:jedi#use_splits_not_buffers = "top"
 let g:jedi#goto_command = "<leader>g"
-let g:jedi#goto_assignments_command = ""
-let g:jedi#goto_definitions_command = ""
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#completions_command = "<C-Space>"
+let g:jedi#goto_assignments_command = "<leader>ga"
+let g:jedi#goto_definitions_command = "<leader>gd"
+let g:jedi#usages_command = "<leader>h"
 let g:jedi#rename_command = "<leader>r"
+let g:jedi#documentation_command = "K"
+let g:jedi#completions_command = "<C-Space>"
 
 " unite search
 let g:unite_source_history_yank_enable = 1
@@ -196,50 +190,74 @@ endif
 let mapleader=","
 
 nnoremap ; :
+vnoremap ; :
 nnoremap H ^
 nnoremap L $
 inoremap jk <Esc>
 inoremap JK <Esc>
 
 " move between split panes
-map <S-M-Down> <C-w>j<C-w>_
-map <S-M-Up> <C-w>k<C-w>_
-map <C-h> <C-w>h<C-w>_
-map <C-j> <C-w>j<C-w>_
-map <C-k> <C-w>k<C-w>_
-map <C-l> <C-w>l<C-w>_
+nnoremap <S-M-Down> <C-w>j<C-w>_
+nnoremap <S-M-Up> <C-w>k<C-w>_
+nnoremap <S-M-Left> <C-w>h<C-w>_
+nnoremap <S-M-Right> <C-w>l<C-w>_
+nnoremap <C-h> <C-w>h<C-w>_
+nnoremap <C-j> <C-w>j<C-w>_
+nnoremap <C-k> <C-w>k<C-w>_
+nnoremap <C-l> <C-w>l<C-w>_
 
 " toggle NERDTree
 nnoremap <leader>t :NERDTreeToggle<cr>
+
 " toggle Tag Browser
-nmap <leader>b :TagbarToggle<CR>
+nnoremap <leader>b :TagbarToggle<CR>
 
-" search a file in the filetree
-" nnoremap <space><space> :split<cr> :<C-u>Unite -start-insert file_rec/async<cr>
-" nnoremap <leader><space> :<C-u>Unite -start-insert file_rec/async<cr>
-" reset - note it is <C-l> normally
-" nnoremap <space>r <Plug>(unite_restart)
+" shell command prompt
+nnoremap <leader>x :!
 
-" search the word under the cursor in all files in the current dir
-nmap <leader>f :Ag <c-r>=expand("<cword>")<cr><cr><C-w>_
-nnoremap <space>/ :Ag<space>
+" run the current file as a python script
+nnoremap <leader>p :!python %<CR>
 
 " Removes highlight of your last search
-noremap <leader>q :nohl<CR>
-vnoremap <leader>q :nohl<CR>
-inoremap <leader>q :nohl<CR>
+nnoremap  <leader><space>  :nohl<CR>
+vnoremap  <leader><space>  :nohl<CR>
+
+" save current file alternative
+nnoremap  <leader>w :w<CR>
+
+" Save all open files and exit
+nnoremap  <leader>qq :wqa<CR>
+vnoremap  <leader>qq :wqa<CR>
+inoremap  <leader>qq <Esc>:wqa<CR>
+
+" undo in insert mode
+inoremap  <leader><leader> <Esc>ua
+nnoremap  <leader><leader> u
+vnoremap  <leader><leader> u
 
 " ----------------------------------------------
 " CtrlSF - code search
 " ----------------------------------------------
+" search the word under the cursor in all files in the current project
 nmap     <leader>f :CtrlSF <c-r>=expand("<cword>")<cr><cr><C-w>_
-nmap     <leader><leader> <Plug>CtrlSFPrompt
 vmap     <leader>f <Plug>CtrlSFVwordPath
-nnoremap <leader><space> :CtrlSFToggle<CR>
+nmap     <leader>s <Plug>CtrlSFPrompt
+nnoremap <leader>ss :CtrlSFToggle<CR>
+
+" ----------------------------------------------
+" CtrlP - fuzzy file finder
+" ----------------------------------------------
+nnoremap <space>/ :CtrlP
 
 " ----------------------------------------------
 " Git
 " ----------------------------------------------
 map gd :Gdiff<CR>
 map gb :Gblame<CR>
+
+" ultisnips
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger = "<tab>"
+"let g:UltiSnipsJumpForwardTrigger = "<S-C-n>"
+"let g:UltiSnipsJumpBackwardTrigger = "<S-C-p>"
 

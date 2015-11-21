@@ -7,7 +7,7 @@
 
 [core]
     excludesfile = ~/.gitignore
-    editor = /usr/bin/vim
+    editor = /usr/local/bin/vim
     pager = less -R
 
 [push]
