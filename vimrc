@@ -2,25 +2,30 @@
 " ~/.vimrc
 "
 
-set nocompatible  	" prevents original vi's bugs & limitations
+set nocompatible      " prevents original vi's bugs & limitations
 
-set ls=2          	" allways show status line
-"set tw=100		    " textwidth : 100 chars
-set scrolloff=4   	" keep 4 lines when scrolling
+set ls=2              " allways show status line
+set scrolloff=4       " keep 4 lines when scrolling
 
 set t_Co=256
-"set term=xterm-256color
+set term=xterm-256color
+set nowrap
 set tabstop=4
+set backspace=indent,eol,start
+set autoindent
+set copyindent
 set shiftwidth=4
+set shiftround
 set expandtab
-set smarttab
+set smarttab            " insert tabs at the start of the line according to shiftwidth not tabstop
+set smartcase           " ignore case if search pattern is all lowercase, case-sensitive otherwise
 set mouse=v
 "set cursorline
 "set number
-set showmatch 		    " verify brace/parenthes/bracket
-set matchpairs+=<:>     " Treat '<','>' as matching braces.
-set visualbell t_vb=    " disable horrible beep when a command doesn't work
-set ruler 	            " display the curent cursor position
+set showmatch             " verify brace/parenthes/bracket
+set matchpairs+=<:>       " Treat '<','>' as matching braces.
+set visualbell t_vb=      " disable horrible beep when a command doesn't work
+set ruler                 " display the curent cursor position
 set foldmethod=indent
 set foldnestmax=1
 set showcmd
@@ -32,16 +37,17 @@ set splitbelow
 set splitright
 set winminheight=1
 set winheight=999
-set clipboard=unnamedplus
 set pastetoggle=<F2>
 set diffopt+=vertical
+set title
+set list listchars=tab:~-,precedes:>,extends:>
 
 syntax on
 
 autocmd Filetype html setlocal ts=4 sts=4 sw=4 omnifunc=htmlcomplete#CompleteTags
 au FileType htmldjango set omnifunc=htmldjangocomplete#CompleteDjango
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType javascript setlocal ts=4 sts=4 sw=4 omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2 omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal ts=4 sts=4 sw=4
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2
 autocmd FileType css setlocal ts=4 noet sw=4 omnifunc=csscomplete#CompleteCSS
@@ -87,7 +93,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'junegunn/vim-easy-align'
 Plug 'Bling/vim-airline'
-"Plug 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 Plug 'majutsushi/tagbar'
 
 " Snippets engine.
@@ -131,13 +137,12 @@ call plug#end()
 " Colour scheme
 " ----------------------------------------------
 syntax enable
-" set background=light
+set background=light
+
 colorscheme springblossom256
 
 let python_highlight_all = 1
-
-"let g:molokai_original = 1
-"let g:jellybeans_use_lowcolor_black = 0
+let python_highlight_space_errors = 0
 
 if (exists('+colorcolumn'))
     set colorcolumn=120
@@ -161,7 +166,7 @@ let g:jedi#goto_assignments_command = "<leader>ga"
 let g:jedi#goto_definitions_command = "<leader>gd"
 let g:jedi#usages_command = "<leader>h"
 let g:jedi#rename_command = "<leader>r"
-let g:jedi#documentation_command = "K"
+let g:jedi#documentation_command = "<leader>d"
 let g:jedi#completions_command = "<C-Space>"
 
 " unite search
@@ -260,4 +265,7 @@ map gb :Gblame<CR>
 let g:UltiSnipsExpandTrigger = "<tab>"
 "let g:UltiSnipsJumpForwardTrigger = "<S-C-n>"
 "let g:UltiSnipsJumpBackwardTrigger = "<S-C-p>"
+
+" auto-pairs
+let g:AutoPairsFlyMode = 1
 
