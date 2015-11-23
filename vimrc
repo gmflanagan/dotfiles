@@ -101,6 +101,7 @@ Plug 'honza/vim-snippets'
 
 Plug 'ervandew/supertab'
 Plug 'kien/ctrlp.vim'
+Plug 'tacahiroy/ctrlp-funky'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'dyng/ctrlsf.vim'
 Plug 'AndrewRadev/splitjoin.vim'
