@@ -281,7 +281,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("pythonRun", "ff0086", "", "")
     call <SID>X("pythonBuiltinObj", "2b6ba2", "", "")
     call <SID>X("pythonBuiltinFunc", "2b6ba2", "", "")
-    call <SID>X("pythonException", "ee0000", "", "")
+    call <SID>X("pythonException", "cb6d8c", "", "bold")
     call <SID>X("pythonExClass", "ff0086", "", "")
     call <SID>X("pythonSpaceError", "", "", "")
     call <SID>X("pythonDocTest", "2f5f49", "", "")
