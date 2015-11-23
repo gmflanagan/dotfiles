@@ -40,7 +40,7 @@ set winheight=999
 set pastetoggle=<F2>
 set diffopt+=vertical
 set title
-set list listchars=tab:~-,precedes:>,extends:>
+" set list listchars=tab:~-,precedes:>,extends:>
 
 syntax on
 
@@ -58,7 +58,6 @@ autocmd FileType make setlocal noexpandtab
 " jump to the last position when reopening a file
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-let g:htmldjangocomplete_html_flavour = 'html5'
 
 " customize the wildmenu
 set wildmenu
@@ -90,8 +89,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
-Plug 'bronson/vim-trailing-whitespace'
-Plug 'junegunn/vim-easy-align'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'Bling/vim-airline'
 Plug 'jiangmiao/auto-pairs'
 Plug 'majutsushi/tagbar'
@@ -113,19 +111,13 @@ Plug 'powerman/vim-plugin-viewdoc'
 Plug 'diepm/vim-rest-console'
 Plug 'mjbrownie/vim-htmldjango_omnicomplete'
 
-" Unite code search
-"   depends on vimproc
-" Plug 'Shougo/vimproc.vim', {'do': 'make'}
-" Plug 'Shougo/unite.vim'
-" Plug 'rking/ag.vim' "apt-get install silversearcher-ag / brew install the_silver_searcher
-
 " Colors
-Plug 'altercation/vim-colors-solarized'
-Plug 'reedes/vim-colors-pencil'
-Plug 'tomasr/molokai'
-Plug 'romainl/Apprentice'
-Plug 'baeuml/summerfruit256.vim'
-Plug 'vim-scripts/Wombat'
+"Plug 'altercation/vim-colors-solarized'
+"Plug 'reedes/vim-colors-pencil'
+"Plug 'tomasr/molokai'
+"Plug 'romainl/Apprentice'
+"Plug 'baeuml/summerfruit256.vim'
+"Plug 'vim-scripts/Wombat'
 "Plug 'wombat256.vim'
 "Plug 'w0ng/vim-hybrid'
 "Plug 'nanotech/jellybeans.vim'
@@ -138,11 +130,12 @@ call plug#end()
 " ----------------------------------------------
 syntax enable
 set background=light
-
 colorscheme springblossom256
 
 let python_highlight_all = 1
 let python_highlight_space_errors = 0
+
+let g:htmldjangocomplete_html_flavour = 'html5'
 
 if (exists('+colorcolumn'))
     set colorcolumn=120
@@ -169,13 +162,6 @@ let g:jedi#rename_command = "<leader>r"
 let g:jedi#documentation_command = "<leader>d"
 let g:jedi#completions_command = "<C-Space>"
 
-" unite search
-let g:unite_source_history_yank_enable = 1
-try
-  let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
-  call unite#filters#matcher_default#use(['matcher_fuzzy'])
-catch
-endtry
 
 if has("unix")
     let s:uname = system("uname")
@@ -252,7 +238,7 @@ nnoremap <leader>ss :CtrlSFToggle<CR>
 " ----------------------------------------------
 " CtrlP - fuzzy file finder
 " ----------------------------------------------
-nnoremap <space>/ :CtrlP
+nnoremap <leader>/ :CtrlP
 
 " ----------------------------------------------
 " Git
@@ -267,5 +253,5 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 "let g:UltiSnipsJumpBackwardTrigger = "<S-C-p>"
 
 " auto-pairs
-let g:AutoPairsFlyMode = 1
+let g:AutoPairsFlyMode = 0
 
