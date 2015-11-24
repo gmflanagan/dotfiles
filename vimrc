@@ -10,19 +10,22 @@ set scrolloff=4       " keep 4 lines when scrolling
 set t_Co=256
 set term=xterm-256color
 set nowrap
-set tabstop=4
+set tabstop=4           " how many spaces for a tab
 set backspace=indent,eol,start
 set autoindent
 set copyindent
+set smartindent
 set shiftwidth=4
 set shiftround
+set softtabstop=0       " disable softtab
 set expandtab
 set smarttab            " insert tabs at the start of the line according to shiftwidth not tabstop
 set smartcase           " ignore case if search pattern is all lowercase, case-sensitive otherwise
 set mouse=v
 "set cursorline
 "set number
-set showmatch             " verify brace/parenthes/bracket
+set shell=bash
+set showmatch             " verify braces/parentheses/brackets
 set matchpairs+=<:>       " Treat '<','>' as matching braces.
 set visualbell t_vb=      " disable horrible beep when a command doesn't work
 set ruler                 " display the curent cursor position
@@ -40,7 +43,11 @@ set winheight=999
 set pastetoggle=<F2>
 set diffopt+=vertical
 set title
+set showcmd              " show incomplete commands
+set autoread             " If a file is changed outside of vim, automatically reload it without asking
 " set list listchars=tab:~-,precedes:>,extends:>
+" set nohls                " don't highlight the last used search pattern
+set nosplitbelow         " new split window is always on top
 
 syntax on
 
@@ -90,9 +97,11 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'junegunn/vim-easy-align'
 Plug 'Bling/vim-airline'
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 Plug 'majutsushi/tagbar'
+Plug 'jmcantrell/vim-virtualenv'
 
 " Snippets engine.
 Plug 'SirVer/ultisnips'
@@ -143,8 +152,6 @@ if (exists('+colorcolumn'))
     highlight ColorColumn ctermbg=9
 endif
 " airline status bar
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline_theme = 'pencil'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 
@@ -253,6 +260,6 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 "let g:UltiSnipsJumpForwardTrigger = "<S-C-n>"
 "let g:UltiSnipsJumpBackwardTrigger = "<S-C-p>"
 
-" auto-pairs
-let g:AutoPairsFlyMode = 0
+:nnoremap <Tab> :bnext<CR>
+:nnoremap <S-Tab> :bprevious<CR>
 
