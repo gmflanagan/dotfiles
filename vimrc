@@ -13,7 +13,7 @@ set nowrap
 set tabstop=4           " how many spaces for a tab
 set backspace=indent,eol,start
 set autoindent
-set copyindent
+" set copyindent
 set smartindent
 set shiftwidth=4
 set shiftround
@@ -23,7 +23,7 @@ set smarttab            " insert tabs at the start of the line according to shif
 set smartcase           " ignore case if search pattern is all lowercase, case-sensitive otherwise
 set mouse=v
 "set cursorline
-"set number
+set number
 set shell=bash
 set showmatch             " verify braces/parentheses/brackets
 set matchpairs+=<:>       " Treat '<','>' as matching braces.
