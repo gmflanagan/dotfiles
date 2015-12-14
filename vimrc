@@ -139,8 +139,8 @@ call plug#end()
 " Colour scheme
 " ----------------------------------------------
 syntax enable
-set background=light
-colorscheme springblossom256
+set background=dark
+colorscheme darkblossom256
 
 let python_highlight_all = 1
 let python_highlight_space_errors = 0
@@ -153,7 +153,7 @@ if (exists('+colorcolumn'))
 endif
 " airline status bar
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#show_buffers = 0
 
 " gitgutter
 let g:gitgutter_override_sign_column_highlight = 0
