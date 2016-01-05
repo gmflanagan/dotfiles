@@ -9,7 +9,7 @@ set scrolloff=4       " keep 4 lines when scrolling
 
 set t_Co=256
 set term=xterm-256color
-set nowrap
+" set nowrap
 set tabstop=4           " how many spaces for a tab
 set backspace=indent,eol,start
 set autoindent
@@ -40,7 +40,6 @@ set splitbelow
 set splitright
 set winminheight=1
 set winheight=999
-set pastetoggle=<F2>
 set diffopt+=vertical
 set title
 set showcmd              " show incomplete commands
@@ -139,6 +138,7 @@ call plug#end()
 " Colour scheme
 " ----------------------------------------------
 syntax enable
+filetype plugin indent on
 set background=dark
 colorscheme darkblossom256
 
@@ -194,6 +194,8 @@ nnoremap H ^
 nnoremap L $
 inoremap jk <Esc>
 inoremap JK <Esc>
+
+set pastetoggle=<leader>v
 
 " move between split panes
 nnoremap <S-M-Down> <C-w>j<C-w>_
