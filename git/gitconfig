@@ -1,17 +1,14 @@
-[user]
-    name = Gerard Flanagan
-    email = gerard.flanagan@velocityww.com
 
 [user]
     name = gmflanagan
-    email = averagehuman@outlook.com
+    email = gerard.flanagan@outlook.com
 
 [github]
     user = gmflanagan
 
 [core]
     excludesfile = ~/.gitignore
-    editor = /usr/local/bin/vim
+    editor = /usr/bin/vim
     pager = less -R
 
 [push]
@@ -34,7 +31,7 @@
 
 [color "status"]
     added = green bold
-    changed = yellow
+    changed = magenta
     untracked = blue bold
 
 [alias]
