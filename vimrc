@@ -14,7 +14,7 @@ set tabstop=4           " how many spaces for a tab
 set backspace=indent,eol,start
 set autoindent
 " set copyindent
-set smartindent
+" set smartindent
 set shiftwidth=4
 set shiftround
 set softtabstop=0       " disable softtab
@@ -90,9 +90,9 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-abolish'
+"Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
+"Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
@@ -117,7 +117,7 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'othree/html5.vim'
 Plug 'ap/vim-css-color'
 Plug 'powerman/vim-plugin-viewdoc'
-Plug 'diepm/vim-rest-console'
+"Plug 'diepm/vim-rest-console'
 Plug 'mjbrownie/vim-htmldjango_omnicomplete'
 
 " Colors
