@@ -90,34 +90,16 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
 Plug 'tpope/vim-fugitive'
-"Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-repeat'
-"Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'junegunn/vim-easy-align'
 Plug 'Bling/vim-airline'
-" Plug 'jiangmiao/auto-pairs'
 Plug 'majutsushi/tagbar'
 Plug 'jmcantrell/vim-virtualenv'
 
-" Snippets engine.
-Plug 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
-Plug 'honza/vim-snippets'
-
 Plug 'ervandew/supertab'
-Plug 'kien/ctrlp.vim'
-Plug 'tacahiroy/ctrlp-funky'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'dyng/ctrlsf.vim'
-Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Valloric/MatchTagAlways'
 Plug 'othree/html5.vim'
 Plug 'ap/vim-css-color'
-Plug 'powerman/vim-plugin-viewdoc'
-"Plug 'diepm/vim-rest-console'
 Plug 'mjbrownie/vim-htmldjango_omnicomplete'
 
 " Colors
@@ -246,21 +228,11 @@ nmap     <leader>s <Plug>CtrlSFPrompt
 nnoremap <leader>ss :CtrlSFToggle<CR>
 
 " ----------------------------------------------
-" CtrlP - fuzzy file finder
-" ----------------------------------------------
-nnoremap <leader>/ :CtrlP
-
-" ----------------------------------------------
 " Git
 " ----------------------------------------------
 map gd :Gdiff<CR>
 map gb :Gblame<CR>
 
-" ultisnips
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger = "<tab>"
-"let g:UltiSnipsJumpForwardTrigger = "<S-C-n>"
-"let g:UltiSnipsJumpBackwardTrigger = "<S-C-p>"
 
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
