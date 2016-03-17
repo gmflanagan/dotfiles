@@ -252,7 +252,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("SignColumn", "", "000000", "")
     call <SID>X("CursorLine", "", "c0d9eb", "")
     call <SID>X("LineNr", "9c9c9c", "000000", "")
-    call <SID>X("MatchParen", "", "", "")
+    call <SID>X("MatchParen", "000000", "dddd33", "")
 
     " Specials
     call <SID>X("Todo", "e50808", "dbf3cd", "bold")
