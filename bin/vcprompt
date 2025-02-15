@@ -612,8 +612,8 @@ def svn(options):
 
     if returncode == 0:
         # compile some regexes
-        branch_regex = re.compile('((tags|branches)/([^/]*)|trunk)')
-        revision_regex = re.compile('^Revision: (?P<revision>\d+)')
+        branch_regex = re.compile(r'((tags|branches)/([^/]*)|trunk)')
+        revision_regex = re.compile(r'^Revision: (?P<revision>\d+)')
 
         for line in output.split('\n'):
             # branch

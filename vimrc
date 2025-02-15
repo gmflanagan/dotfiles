@@ -100,7 +100,7 @@ Plug 'ervandew/supertab'
 Plug 'Valloric/MatchTagAlways'
 Plug 'othree/html5.vim'
 Plug 'ap/vim-css-color'
-Plug 'mjbrownie/vim-htmldjango_omnicomplete'
+"Plug 'mjbrownie/vim-htmldjango_omnicomplete'
 
 " Colors
 "Plug 'altercation/vim-colors-solarized'
