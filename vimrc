@@ -64,6 +64,7 @@ autocmd FileType make setlocal noexpandtab
 " jump to the last position when reopening a file
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
+autocmd FileType go setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 " customize the wildmenu
 set wildmenu
